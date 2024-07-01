@@ -34,7 +34,6 @@ const productSchema = new Schema(
       type: Number,
       required: true,
     },
-
     description: {
       type: String,
       required: true,
@@ -46,6 +45,10 @@ const productSchema = new Schema(
     images: {
       type: Array,
       required: true,
+    },
+    videos: {
+      type: Array,
+      required: false, // videos are optional
     },
     rating: {
       type: Number,

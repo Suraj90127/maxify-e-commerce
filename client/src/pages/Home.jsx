@@ -152,7 +152,7 @@ const Home = () => {
 
       {/* third banner type */}
 
-      <div className="w-full mx-auto">
+      {/* <div className="w-full mx-auto">
         <div className="organic-choose-feats mat-50">
           <div className="feat-content">
             <ul className="xl:mr-20 md-lg:mr-0 md-lg:ml-[26rem] sm:ml-[13rem]">
@@ -179,7 +179,7 @@ const Home = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* video section */}
 
@@ -279,7 +279,6 @@ const Home = () => {
           <div className="slider-container1 mat-25">
             <Slider {...setting5}>
               <div className="element-box border-[1px] rounded-lg shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -300,7 +299,6 @@ const Home = () => {
                 </div>
               </div>
               <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -321,7 +319,6 @@ const Home = () => {
                 </div>
               </div>
               <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -342,7 +339,6 @@ const Home = () => {
                 </div>
               </div>
               <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -363,7 +359,6 @@ const Home = () => {
                 </div>
               </div>
               <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -384,7 +379,6 @@ const Home = () => {
                 </div>
               </div>
               <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                {/* <img className="h-[15rem]" src={ProductImg} alt="" /> */}
                 <div className="w-full h-[19rem] overflow-hidden">
                   <video
                     className=""
@@ -410,7 +404,7 @@ const Home = () => {
       </div>
 
       {/* OUR WAY OF LIFE */}
-      <div className="flex flex-col items-center justify-center py-10 gap-4 md:gap-6 xl:gap-8 xl:w-[85%] mx-auto">
+      {/* <div className="flex flex-col items-center justify-center py-10 gap-4 md:gap-6 xl:gap-8 xl:w-[85%] mx-auto">
         <div className="md:flex lg:w-full flex-col gap-4 md:gap-6 lg:gap-8 lg:mx-10 sm:mx-5">
           <div className="text-center mb-10 xl:w-[80%] md-lg:w-full mx-auto">
             <h2 className="xl:text-5xl sm:text-3xl font-semibold text-[#243945]">
@@ -422,7 +416,6 @@ const Home = () => {
               Various industries as follows:
             </p>
           </div>
-          {/*  Cements Plants: */}
           <div className="lg:grid lg:grid-cols-12 xl:grid xl:grid-cols-12  items-start sm:gap-6 md:gap-5 lg:gap-10 xl:gap-14 lg:mx-20 md-lg:mx-0">
             <div className=" xl:col-span-6 md:col-span-12">
               <img
@@ -470,14 +463,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Building The Soil, And Our Future! */}
+      </div> */}
       <div className="w-full">
         <img src={Cow_Image} alt="" />
       </div>
 
       {/* client review */}
-      <div className="bg-slate-500">
+      {/* <div className="bg-slate-500">
         <div className="py-10 text-center w-[80%] m-auto">
           <div className="w-full">
             <Carousel
@@ -682,7 +674,7 @@ const Home = () => {
             </Carousel>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* marquee */}
 

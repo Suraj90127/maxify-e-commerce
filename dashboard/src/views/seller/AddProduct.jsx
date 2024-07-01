@@ -8,6 +8,7 @@ import { PropagateLoader } from "react-spinners";
 import { overrideStyle } from "../../utils/utils";
 import { get_category } from "../../store/Reducers/categoryReducer";
 import { add_product, messageClear } from "../../store/Reducers/productReducer";
+import { MdOutlineVideoLibrary } from "react-icons/md";
 const AddProduct = () => {
   const dispatch = useDispatch();
   const { categorys } = useSelector((state) => state.category);
@@ -61,6 +62,10 @@ const AddProduct = () => {
   };
   const [images, setImages] = useState([]);
   const [imageShow, setImageShow] = useState([]);
+  const [video, setVideo] = useState(null);
+  const [videoShow, setVideoShow] = useState(null);
+
+  // console.log("video", video);
   const inmageHandle = (e) => {
     const files = e.target.files;
     const length = files.length;
@@ -87,6 +92,26 @@ const AddProduct = () => {
       setImages([...tempImages]);
     }
   };
+  const videoHandle = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setVideo(file);
+      setVideoShow({ url: URL.createObjectURL(file) });
+    }
+  };
+
+  const changeVideo = (vid) => {
+    if (vid) {
+      setVideo(vid);
+      setVideoShow({ url: URL.createObjectURL(vid) });
+    }
+  };
+
+  const removeVideo = () => {
+    setVideo(null);
+    setVideoShow(null);
+  };
 
   const removeImage = (i) => {
     const filterImage = images.filter((img, index) => index !== i);
@@ -106,13 +131,15 @@ const AddProduct = () => {
     formData.append("description", state.description);
     formData.append("price", state.price);
     formData.append("stock", state.stock);
-    // formData.append("category", category);
     formData.append("category", subCategories);
     formData.append("discount", state.discount);
-    formData.append("shopName", "Farid Fashoin");
+    formData.append("shopName", "Farid Fashion");
     formData.append("brand", state.brand);
     for (let i = 0; i < images.length; i++) {
       formData.append("images", images[i]);
+    }
+    if (video) {
+      formData.append("video", video);
     }
     dispatch(add_product(formData));
   };
@@ -134,10 +161,12 @@ const AddProduct = () => {
       });
       setImageShow([]);
       setImages([]);
+      setVideoShow(null);
+      setVideo(null);
       setCategory("");
       setSubCategories("");
     }
-  }, [successMessage, errorMessage]);
+  }, [successMessage, errorMessage, dispatch]);
 
   return (
     <div className="px-2 lg:px-7 pt-5 ">
@@ -371,6 +400,56 @@ const AddProduct = () => {
                 type="file"
                 id="image"
               />
+            </div>
+            <div className="flex flex-col mb-3 w-full text-[#d0d2d6]">
+              <div className="flex flex-col w-full gap-1 relative">
+                <label htmlFor="video">Product video</label>
+                <div className="overflow-hidden w-full flex flex-wrap border border-slate-600 gap-2 rounded-md p-4">
+                  {videoShow ? (
+                    <div className="relative w-[100px] h-[100px]">
+                      <video
+                        className="w-full h-full object-cover"
+                        src={videoShow.url}
+                        controls
+                      />
+                      <span
+                        onClick={removeVideo}
+                        className="absolute top-0 right-0 bg-red-500 text-white w-5 h-5 flex justify-center items-center cursor-pointer"
+                      >
+                        <IoCloseSharp />
+                      </span>
+                      <input
+                        onChange={(e) => changeVideo(e.target.files[0])}
+                        type="file"
+                        id="video"
+                        className="hidden"
+                      />
+                      <label
+                        className="absolute top-0 left-0 bg-indigo-500 text-white w-5 h-5 flex justify-center items-center cursor-pointer"
+                        htmlFor="video"
+                      >
+                        <MdOutlineVideoLibrary />
+                      </label>
+                    </div>
+                  ) : (
+                    <div>
+                      <input
+                        onChange={videoHandle}
+                        className="hidden"
+                        type="file"
+                        id="video"
+                        accept="video/*"
+                      />
+                      <label
+                        className="w-[100px] h-[100px] border border-slate-600 cursor-pointer flex justify-center items-center"
+                        htmlFor="video"
+                      >
+                        <MdOutlineVideoLibrary />
+                      </label>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
             <div className="flex">
               <button
