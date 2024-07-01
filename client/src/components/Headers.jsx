@@ -65,7 +65,7 @@ const Headers = () => {
   }, [userInfo]);
   return (
     <div className="w-full bg-white">
-      <div className="header-top bg-[#91C72E] md-lg:hidden">
+      <div className="header-top bg-[#44B88C] md-lg:hidden">
         <div className="w-[90%] lg:w-[95%] mx-auto pt-1">
           <div className="flex w-full justify-between items-center h-[50px] text-black">
             <ul className="flex justify-start items-center gap-8">
@@ -414,7 +414,7 @@ const Headers = () => {
             <div className="bg-white relative">
               <div
                 onClick={() => setCategoryShow(!categoryShow)}
-                className="h-[50px] bg-[#FFED4E] text-black flex justify-center md-lg:justify-between md-lg:px-6 items-center gap-3 font-bold text-md cursor-pointer"
+                className="h-[50px] bg-[#44B88C] text-black flex justify-center md-lg:justify-between md-lg:px-6 items-center gap-3 font-bold text-md cursor-pointer"
               >
                 <div className="flex justify-center items-center gap-3">
                   <span>
@@ -479,7 +479,7 @@ const Headers = () => {
                                     {c.subCategory.map((subitem, index) => (
                                       <div
                                         key={index}
-                                        className="my-2 text-base font-[400] hover:bg-yellow-200 p-2 rounded-lg cursor-pointer"
+                                        className="my-2 text-base font-[400] hover:bg-[#44B88C] p-2 rounded-lg cursor-pointer"
                                         onClick={() =>
                                           setCategoryShow(!categoryShow)
                                         }
@@ -507,7 +507,7 @@ const Headers = () => {
           <div className="w-9/12 pl-8 md-lg:pl-0 md-lg:w-full">
             <div className="flex flex-wrap w-full justify-between items-center md-lg:gap-6">
               <div className="w-8/12 md-lg:w-full">
-                <div className="flex border h-[50px] items-center relative gap-5">
+                <div className="flex border h-[50px] items-center relative gap-5 rounded-full">
                   <div className="relative after:absolute after:h-[25px] after:w-[1px] after:bg-[#afafaf] after:-right-[15px] md:hidden">
                     <select
                       onChange={(e) => setCategory(e.target.value)}
@@ -524,7 +524,7 @@ const Headers = () => {
                     </select>
                   </div>
                   <input
-                    className="w-full relative bg-transparent text-slate-500 outline-0 px-3 h-full"
+                    className="w-full relative bg-transparent text-slate-500 outline-0 px-3 h-full rounded-full"
                     onChange={(e) => setSearchValue(e.target.value)}
                     type="text"
                     name=""
@@ -533,7 +533,7 @@ const Headers = () => {
                   />
                   <button
                     onClick={search}
-                    className="bg-[#FFED4E] right-0 absolute px-8 h-full font-semibold uppercase text-black"
+                    className="bg-[#44B88C] right-0 absolute px-8 h-full font-semibold uppercase text-black rounded-r-full"
                   >
                     Search
                   </button>

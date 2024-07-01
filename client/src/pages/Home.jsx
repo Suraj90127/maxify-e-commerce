@@ -42,6 +42,8 @@ const Home = () => {
     dispatch(get_products());
   }, []);
 
+  console.log("product", latest_product);
+
   // var setting5 = {
   //   // dots: true,
   //   infinite: true,
@@ -90,7 +92,7 @@ const Home = () => {
     <div className="w-full">
       <Heders />
       <Banner />
-      <div className="seconBanner">
+      {/* <div className="seconBanner">
         <div className="w-full xl:h-[25rem] md-lg:h-[30rem] bg-[#d9d9d9] relative">
           <div className="xl:pt-[80px] md-lg:pt-5 grid grid-cols-12 gap-5 ">
             <div className="xl:col-span-3 md-lg:col-span-12 relative">
@@ -124,7 +126,7 @@ const Home = () => {
           </div>
           <div className="w-full bg-[#91C72E] absolute bottom-0 h-8"></div>
         </div>
-      </div>
+      </div> */}
       <div className="my-4">
         <Categorys />
       </div>
@@ -195,12 +197,26 @@ const Home = () => {
 
       {/* YOUR FARM CREATIONS */}
 
-      <div className="creation-bg h-auto xl:p-[40px]  md-lg:p-[20px]">
-        <h2 className="xl:text-4xl md-lg:text-2xl font-bold my-5 text-[#91C72E]">
-          YOUR FARM CREATIONS
+      <div className="creation-bg1 bg-[#c7e0f0] h-auto xl:p-[40px]  md-lg:p-[20px]">
+        <h2 className="xl:text-4xl md-lg:text-2xl font-bold my-5 text-black ">
+          Latest Product
         </h2>
         <div className="grid grid-cols-10 xl:gap-[2%] sm:gap-0 xl:py-5 md-lg:py-0 xl:mx-10 md-lg:mx-0">
-          <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5">
+          {latest_product[0]?.map((item) => (
+            <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5">
+              <div className="creation-section">
+                <Link to={`/product/details/${item.slug}`}>
+                  <img
+                    className="xl:h-[15rem] md-lg:h-[20rem] w-full"
+                    src={item?.images[0]}
+                    alt={item?.name}
+                  />
+                  <p className="text-lg font-[400] py-2"> {item?.name}</p>
+                </Link>
+              </div>
+            </div>
+          ))}
+          {/* <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5">
             <div className="creation-section">
               <img
                 className="xl:h-[15rem] md-lg:h-[20rem] w-full"
@@ -249,7 +265,7 @@ const Home = () => {
               />
               <p className="text-lg font-[400] py-2"> Bilona A2 ghee</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

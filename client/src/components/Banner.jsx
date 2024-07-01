@@ -1,10 +1,10 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import banner1 from "../assets/banner/banner1.jpg";
-import banner2 from "../assets/banner/banner2.jpg";
-import banner3 from "../assets/banner/banner5.jpg";
-import banner4 from "../assets/banner/banner4.jpg";
+import banner1 from "../assets/banner/banner1.png";
+import banner2 from "../assets/banner/banner2.png";
+import banner3 from "../assets/banner/banner3.png";
+// import banner4 from "../assets/banner/banner4.jpg";
 import { Link } from "react-router-dom";
 import "./bannerstyle.css";
 
@@ -40,7 +40,7 @@ const Banner = () => {
                 showDots={true}
                 responsive={responsive}
               >
-                {[banner1, banner2, banner3, banner4].map((img, i) => (
+                {[banner1, banner2, banner3].map((img, i) => (
                   <Link
                     className="lg-md:h-[440px] h-auto w-full block"
                     key={i}
