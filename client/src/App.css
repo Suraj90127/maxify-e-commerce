@@ -1,0 +1,160 @@
+/* fonts */
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-thin-italic2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+
+.action-bar {
+  transition: all 0.3s linear;
+
+}
+
+.product-cart:hover .action-bar {
+  right: 15px;
+}
+
+.product-cart {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+
+
+}
+
+
+
+.heading-h5 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.heading-h2 {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.container-section {
+  width: 90%;
+  margin: auto;
+}
+
+.mat-50 {
+  margin-top: 50px !important;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(1% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(1% + 1px) !important;
+}
+
+/* .carousel .control-next.control-arrow::before {
+  border-left: 8px solid #060606 !important;
+}
+
+.carousel .control-prev.control-arrow::before {
+  border-right: 8px solid #060606 !important;
+} */
+@media (min-width: 960px) {
+  .carousel .control-dots {
+    bottom: -13px !important;
+  }
+}
+
+.carousel.carousel-slider {
+  padding-bottom: 20px !important;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: none !important;
+}
+
+.blog-sidebar {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.blog-sidebar#fix {
+  position: fixed;
+  right: 0px;
+  bottom: 60%;
+}

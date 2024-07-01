@@ -1,0 +1,50 @@
+footer{
+    background: #ededed;
+    padding-top: 20px;
+
+}
+.footer-sec{
+    margin-top: 10px;
+}
+.footer-sec li{
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 7px;
+    transition: all 0.5s linear;
+}
+.footer-sec li:hover{
+    transform: translateX(10px);
+}
+.f-email{
+    position: relative;
+}
+.f-email input{
+    background: #fff;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 32px;
+}
+.f-email span{
+    position: absolute;
+    background: #3f231b;;
+    height: 100%;
+    width: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -12px;
+    top: 0;
+    color: white;
+    border-radius: 20px;
+    font-size: 21px;
+}
+.payment-sec{
+    display: flex;
+    margin-top: 20px;
+}
+.payment-sec img{
+    width: 33px;
+    margin-right: 5px;
+}

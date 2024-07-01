@@ -1,0 +1,166 @@
+.organic-choose-feats {
+  background: url("../assets/ot_bg.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+}
+
+.organic-choose-feats .feat-content {
+  flex-basis: 35%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.organic-choose-feats .feat-content ul {
+  /* margin-right: 80px; */
+}
+
+.organic-choose-feats .feat-content ul li {
+  /* display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    width: 80%; */
+  color: var(--chakloted);
+}
+
+.organic-choose-feats .feat-content ul li img {
+  /* width: 80px; */
+  margin-right: 10px;
+}
+
+/* 
+YOUR FARM CREATIONS */
+.creation-bg {
+  background-image: url("https://twobrothersindiashop.com/cdn/shop/files/Farm_made_Goodness_Desktop_New_2_82c0aa8d-ed58-4ef1-b279-b2da1971137b.png?v=1680503393");
+  /* padding: 40px; */
+  text-align: center;
+  /* height: auto; */
+  /* height: 100%; */
+
+}
+
+.creation-section {
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.5s linear;
+}
+
+.creation-section:hover {
+  transform: scale(1.3);
+}
+
+.creation-section h4 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+/* slider css start */
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex !important;
+  gap: 10px !important;
+}
+
+.shadow-box {
+  /* box-shadow: 0 20px 50px #0000000d; */
+}
+
+/* animation button */
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #513020;
+  box-shadow: 0 0 0 2px #513020;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: #513020;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #428f20;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #fff;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
