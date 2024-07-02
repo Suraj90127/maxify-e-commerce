@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,28 +10,28 @@ import Banner from "../components/Banner";
 import Categorys from "../components/Categorys";
 import FeatureProducts from "../components/products/FeatureProducts";
 import Products from "../components/products/Products";
-import ProductImg from "../assets/product-img.webp";
 import Footer from "../components/Footer";
-import secondbanner1 from "../assets/secondbanner1.png";
-import secondbanner2 from "../assets/secondbanner2.png";
-import FarmingImg from "../assets/farming.png";
-import ChemicalImg from "../assets/chemical.png";
-import GmoImg from "../assets/gmo.png";
-import LocallyImg from "../assets/locally.png";
-import GlobalImg from "../assets/global.png";
-import Brother from "../assets/Brothers.png";
-import video from "../assets/videos.mp4";
-import Swimming from "../assets/Swimming.png";
-import Cow_Image from "../assets/Cow_Image.png";
+import video from "../assets/video1.mp4";
+import Swimming from "../assets/Swimming.jpg";
+import ecommbanner from "../assets/e-comm-banner.jpeg";
 import { get_category, get_products } from "../store/reducers/homeReducer";
 import Marquee from "../components/Marquee";
-import triune from "../assets/triune.png";
-import wood from "../assets/wood.png";
-import multitex from "../assets/multitex.png";
-import llyod from "../assets/llyod.png";
-import micr from "../assets/micr.webp";
-import triveni from "../assets/triveni-engineering.png";
-import { Carousel } from "react-responsive-carousel";
+import l1 from "../assets/marqee/l1.jpg";
+import l2 from "../assets/marqee/l2.jpg";
+import l3 from "../assets/marqee/l3.jpg";
+import l4 from "../assets/marqee/l4.jpg";
+import l5 from "../assets/marqee/l5.jpg";
+import l6 from "../assets/marqee/l6.jpg";
+import l7 from "../assets/marqee/l7.jpg";
+import l8 from "../assets/marqee/l8.jpg";
+import l9 from "../assets/marqee/l9.jpg";
+import l10 from "../assets/marqee/l10.jpg";
+import l11 from "../assets/marqee/l11.jpg";
+import l12 from "../assets/marqee/l12.jpg";
+import l13 from "../assets/marqee/l13.jpg";
+import l14 from "../assets/marqee/l14.jpg";
+import l15 from "../assets/marqee/l15.jpg";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Home = () => {
@@ -42,7 +42,7 @@ const Home = () => {
     dispatch(get_products());
   }, []);
 
-  console.log("product", latest_product);
+  console.log("product", products);
 
   // var setting5 = {
   //   // dots: true,
@@ -85,8 +85,8 @@ const Home = () => {
     ],
   };
 
-  const row2 = [triune, wood, multitex, llyod, micr, triveni];
-  const row1 = [triune, wood, multitex, llyod, micr, triveni];
+  const row2 = [l1, l2, l3, l4, l5, l9, l7, l8];
+  const row1 = [l1, l2, l3, l4, l5, l9, l7, l8];
 
   return (
     <div className="w-full">
@@ -184,9 +184,9 @@ const Home = () => {
       {/* video section */}
 
       <div className="video w-[100%]">
-        <div className="w-[100] mx-auto h-[30rem] overflow-hidden">
+        <div className="w-[100] mx-auto h-[45rem] overflow-hidden">
           <video
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover py-10"
             autoPlay
             muted
             loop
@@ -195,7 +195,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* YOUR FARM CREATIONS */}
+      {/* Latest Product */}
 
       <div className="creation-bg1 bg-[#c7e0f0] h-auto xl:p-[40px]  md-lg:p-[20px]">
         <h2 className="xl:text-4xl md-lg:text-2xl font-bold my-5 text-black ">
@@ -203,17 +203,33 @@ const Home = () => {
         </h2>
         <div className="grid grid-cols-10 xl:gap-[2%] sm:gap-0 xl:py-5 md-lg:py-0 xl:mx-10 md-lg:mx-0">
           {latest_product[0]?.map((item) => (
-            <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5">
-              <div className="creation-section">
+            <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5 rounded-lg">
+              <div className="creation-section overflow-hidden h-[23rem]">
                 <Link to={`/product/details/${item.slug}`}>
                   <img
-                    className="xl:h-[15rem] md-lg:h-[20rem] w-full"
+                    className="xl:h-[15rem] md-lg:h-[20rem] p-4 w-full"
                     src={item?.images[0]}
                     alt={item?.name}
                   />
-                  <p className="text-lg font-[400] py-2"> {item?.name}</p>
+                  <p className="text-base font-[400] p-2"> {item?.name}</p>
                 </Link>
               </div>
+            </div>
+          ))}
+          {latest_product[1]?.map((item, i) => (
+            <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5 rounded-lg">
+              {i < 2 && (
+                <div className="creation-section overflow-hidden h-[23rem]">
+                  <Link to={`/product/details/${item.slug}`}>
+                    <img
+                      className="xl:h-[15rem] md-lg:h-[20rem] p-4 w-full"
+                      src={item?.images[0]}
+                      alt={item?.name}
+                    />
+                    <p className="text-base font-[400] p-2"> {item?.name}</p>
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
           {/* <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5">
@@ -278,126 +294,39 @@ const Home = () => {
         <div className="most-legens-section1 xl:py-20 md-lg:py-10 w-[95%] mx-auto">
           <div className="slider-container1 mat-25">
             <Slider {...setting5}>
-              <div className="element-box border-[1px] rounded-lg shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_j7px6mza7qodsyeb8cbky56j.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
-              <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_n43wevd110kc1crglryr9k22.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
-              <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_rno4980d6cncv6q6ubhm1qt4.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
-              <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_ar0ogyx4wgeok9o45k3iggap.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
-              <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_h7hrv5q488mhqdtv5egpel7e.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
-              <div className="element-box border-[1px] rounded-lg  shadow-box bg-white overflow-hidden object-cover">
-                <div className="w-full h-[19rem] overflow-hidden">
-                  <video
-                    className=""
-                    src="https://twobrothersindiashop.com/cdn/shop/files/quinn_fr0v22l6u5umsi0upgzbtzl4.mp4"
-                    autoPlay
-                    muted
-                    loop
-                  ></video>
-                </div>
-                <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                  <h6 className="mb-2 heading-h6 text-sm">
-                    <Link>A2 Cow Cultured Ghee,</Link>
-                  </h6>
-
-                  <p className="p-small font-bold text-lg">
-                    <span>Rs.</span> <span>200</span>
-                  </p>
-                </div>
-              </div>
+              {products.map((product, i) => (
+                <Fragment>
+                  {console.log("obiuuii", product.videos.length == 1)}
+                  {product.videos.length == 1 && (
+                    <div key={product._id}>
+                      <div>
+                        <Link
+                          to={`/product/details/${product.slug}`}
+                          className="element-box border-[1px] rounded-lg shadow-box overflow-hidden object-cover cursor-pointer bg-gray-200"
+                        >
+                          <div className="w-full h-[19rem] overflow-hidden">
+                            <video
+                              className=""
+                              src={product.videos[0]}
+                              autoPlay
+                              muted
+                              loop
+                            ></video>
+                          </div>
+                          <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
+                            <h6 className="mb-2 heading-h6 text-sm">
+                              <h2>{product.name}</h2>
+                            </h6>
+                            <p className="p-small font-bold text-lg">
+                              <span>Rs.</span> <span>{product.price}</span>
+                            </p>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </Fragment>
+              ))}
             </Slider>
           </div>
         </div>
@@ -465,7 +394,7 @@ const Home = () => {
         </div>
       </div> */}
       <div className="w-full">
-        <img src={Cow_Image} alt="" />
+        <img src={ecommbanner} alt="" />
       </div>
 
       {/* client review */}

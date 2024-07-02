@@ -30,13 +30,6 @@ const Footer = () => {
                 <li>
                   <img src={logo} alt="" className="w-[100px]" />
                 </li>
-                <li className="mt-2">Also shop on</li>
-                <li className="mt-2">
-                  <img src={Amazon} alt="" />
-                </li>
-                <li className="mt-2">
-                  <img src={Bigbasket} alt="" />
-                </li>
               </ul>
             </div>
 
