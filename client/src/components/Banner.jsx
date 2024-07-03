@@ -46,7 +46,7 @@ const Banner = () => {
                     key={i}
                     to="#"
                   >
-                    <img className="md-lg:h-[10rem]" src={img} alt="" />
+                    <img className="" src={img} alt="" />
                   </Link>
                 ))}
               </Carousel>

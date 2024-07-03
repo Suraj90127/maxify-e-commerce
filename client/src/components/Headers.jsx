@@ -3,6 +3,9 @@ import { GrMail } from "react-icons/gr";
 import { IoIosCall } from "react-icons/io";
 import logo from "../assets/logo1.webp";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaAngleRight } from "react-icons/fa6";
+import { FaAngleDown } from "react-icons/fa6";
+import { IoIosArrowUp } from "react-icons/io";
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -432,13 +435,13 @@ const Headers = () => {
                   categoryShow ? "h-0" : "h-[400px]"
                 } overflow-hidden transition-all md-lg:relative duration-500 absolute z-[99999] bg-white w-full border-x`}
               >
-                <ul className="py-2 text-slate-600 font-medium h-full overflow-auto">
+                <ul className="py-2 text-slate-600 font-medium h-full overflow-auto no-scrollbar">
                   {categorys.map((c, i) => {
                     return (
                       <div>
                         <li
                           key={i}
-                          className="flex justify-start items-center gap-2 px-[24px] py-[6px] cursor-pointer"
+                          className="flex justify-between items-center gap-2 px-[24px] py-[6px] cursor-pointer hover:bg-red-400"
                           onMouseEnter={() => {
                             setSubcategorisData(c.subCategory);
                             setsubCategoryShow(true);
@@ -459,9 +462,26 @@ const Headers = () => {
                           />
                           <div
                             // to={`/products?category=${c.name}`}
-                            className="text-sm block"
+                            className="text-sm block w-[70%] text-start"
                           >
                             {c.name}
+                          </div>
+                          <div>
+                            <span className="md-lg:hidden">
+                              <FaAngleRight />
+                            </span>
+                            <span className="xl:hidden md-lg:block">
+                              {showSunCategorySidebar &&
+                              subCategoryDropdown === i ? (
+                                <span>
+                                  <IoIosArrowUp />
+                                </span>
+                              ) : (
+                                <span>
+                                  <FaAngleDown />
+                                </span>
+                              )}
+                            </span>
                           </div>
                         </li>
                         {/* show sub category data */}
@@ -566,14 +586,17 @@ const Headers = () => {
           <div
             className={`${
               subCategoryShow ? "h-[400px]" : "h-0"
-            } overflow-hidden transition-all w-[25%] top-48 left-[26%] md-lg:relative duration-500 absolute z-[99999] bg-white border-x`}
+            } overflow-hidden transition-all w-[25%] top-48 left-[26%] md-lg:relative duration-500 absolute z-[99999] bg-white border-x shadow-2xl `}
             onMouseLeave={() => {
               setsubCategoryShow(false);
             }}
           >
-            <ul className="py-2 text-slate-600 font-medium h-full overflow-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-700 scrollbar-track-gray-300">
+            <ul className="py-2 text-slate-600 font-medium h-full overflow-auto no-scrollbar ">
               {subcategorisData.map((item, index) => (
-                <li key={index} className="p-5 text">
+                <li
+                  key={index}
+                  className="px-5 py-3 flex justify-between text hover:bg-[#44B88C]"
+                >
                   <Link
                     to={`/products?category=${item.sname}`}
                     onClick={() => {
@@ -583,6 +606,12 @@ const Headers = () => {
                   >
                     {item.sname}
                   </Link>
+
+                  <div>
+                    <span>
+                      <FaAngleRight />
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>

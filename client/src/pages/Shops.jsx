@@ -90,6 +90,26 @@ const Shops = () => {
     );
   };
 
+  const handleCategoryChange = (e, categoryName, subCategories, index) => {
+    if (e.target.checked) {
+      setCategory(categoryName);
+      setSubCategoryData(subCategories);
+      setSubCategoryShow(index);
+    } else {
+      setCategory("");
+      setSubCategoryData([]);
+      setSubCategoryShow(null);
+    }
+  };
+
+  const handleSubCategoryChange = (e, subCategoryName) => {
+    if (e.target.checked) {
+      setCategory(subCategoryName);
+    } else {
+      setCategory("");
+    }
+  };
+
   return (
     <div>
       <Headers />
@@ -137,7 +157,9 @@ const Shops = () => {
                       <div className="flex justify-start items-center gap-2 py-1">
                         <input
                           checked={category === c.name}
-                          onChange={(e) => queryCategoey(e, c.name)}
+                          onChange={(e) =>
+                            handleCategoryChange(e, c.name, c.subCategory, i)
+                          }
                           type="checkbox"
                           id={c.name}
                           className="focus:outline-none"
@@ -145,22 +167,11 @@ const Shops = () => {
                         <label
                           className="text-slate-600 block cursor-pointer"
                           htmlFor={c.name}
-                          onClick={() => {
-                            if (category !== c.name) {
-                              setCategory(c.name);
-                              setSubCategoryData(c.subCategory);
-                              setSubCategoryShow(i);
-                            } else {
-                              setCategory("");
-                              setSubCategoryData([]);
-                              setSubCategoryShow(false);
-                            }
-                          }}
                         >
                           {c.name}
                         </label>
                       </div>
-                      {subCategoryData.length > 0 && subCategoryShow == i && (
+                      {subCategoryData.length > 0 && subCategoryShow === i && (
                         <div>
                           {subCategoryData.map((item, subIndex) => (
                             <div
@@ -169,13 +180,9 @@ const Shops = () => {
                             >
                               <input
                                 checked={category === item.sname}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setCategory(item.sname);
-                                  } else {
-                                    setCategory(c.name);
-                                  }
-                                }}
+                                onChange={(e) =>
+                                  handleSubCategoryChange(e, item.sname)
+                                }
                                 type="checkbox"
                                 id={item.sname}
                                 className="focus:outline-none"
