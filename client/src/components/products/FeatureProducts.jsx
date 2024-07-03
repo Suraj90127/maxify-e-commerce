@@ -69,7 +69,7 @@ const FeatureProducts = ({ products }) => {
           <div className="w-[100px] h-[4px] bg-[#7fad39] mt-4"></div>
         </div>
       </div>
-      <div className="w-full grid grid-cols-4 md-lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
+      <div className="w-full grid grid-cols-4 md-lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xl:gap-10 sm:gap-3">
         {products.map((p, i) => (
           <div
             key={i}
@@ -84,7 +84,7 @@ const FeatureProducts = ({ products }) => {
                 ""
               )}
               <img
-                className="sm:w-full w-full h-[280px]"
+                className="sm:w-full w-full xl:h-[280px] sm:h-[200px]"
                 src={p.images[0]}
                 alt="product image"
               />

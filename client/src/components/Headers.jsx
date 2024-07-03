@@ -320,6 +320,7 @@ const Headers = () => {
               </li>
               <li>
                 <Link
+                  to="/shops"
                   className={`py-2 block ${
                     pathname === "/shop" ? "text-[#7fad39]" : "text-slate-600"
                   }`}

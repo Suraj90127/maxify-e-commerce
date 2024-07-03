@@ -57,11 +57,11 @@ const Home = () => {
 
   const setting5 = {
     infinite: true,
-    slidesToShow: 6, // Default to 6 slides
+    slidesToShow: 6,
     slidesToScroll: 1,
     speed: 500,
     autoplaySpeed: 1000,
-    autoPlay: true,
+    // autoPlay: true,
     cssEase: "linear",
     responsive: [
       {
@@ -71,9 +71,21 @@ const Home = () => {
         },
       },
       {
+        breakpoint: 1200, // lg
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
         breakpoint: 991, // md-lg
         settings: {
           slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768, // sm-md
+        settings: {
+          slidesToShow: 2,
         },
       },
       {
@@ -84,7 +96,6 @@ const Home = () => {
       },
     ],
   };
-
   const row2 = [l1, l2, l3, l4, l5, l9, l7, l8];
   const row1 = [l1, l2, l3, l4, l5, l9, l7, l8];
 
@@ -184,7 +195,7 @@ const Home = () => {
       {/* video section */}
 
       <div className="video w-[100%]">
-        <div className="w-[100] mx-auto h-[45rem] overflow-hidden">
+        <div className="w-[100] mx-auto xl:h-[45rem] md-lg:h-[30rem] sm:h-[20rem] overflow-hidden">
           <video
             className="w-full h-full object-cover py-10"
             autoPlay
@@ -204,7 +215,7 @@ const Home = () => {
         <div className="grid grid-cols-10 xl:gap-[2%] sm:gap-0 xl:py-5 md-lg:py-0 xl:mx-10 md-lg:mx-0">
           {latest_product[0]?.map((item) => (
             <div className="md-lg:col-span-5 lg:col-span-5 xl:col-span-2 md:col-span-5 sm:col-span-12 sm:my-5 rounded-lg">
-              <div className="creation-section overflow-hidden h-[23rem]">
+              <div className="creation-section overflow-hidden xl:h-[23rem] sm:h-[25rem]">
                 <Link to={`/product/details/${item.slug}`}>
                   <img
                     className="xl:h-[15rem] md-lg:h-[20rem] p-4 w-full"
@@ -292,42 +303,40 @@ const Home = () => {
           <img src={Swimming} alt="" />
         </div>
         <div className="most-legens-section1 xl:py-20 md-lg:py-10 w-[95%] mx-auto">
-          <div className="slider-container1 mat-25">
-            <Slider {...setting5}>
-              {products.map((product, i) => (
-                <Fragment>
-                  {console.log("obiuuii", product.videos.length == 1)}
-                  {product.videos.length == 1 && (
-                    <div key={product._id}>
-                      <div>
-                        <Link
-                          to={`/product/details/${product.slug}`}
-                          className="element-box border-[1px] rounded-lg shadow-box overflow-hidden object-cover cursor-pointer bg-gray-200"
-                        >
-                          <div className="w-full h-[19rem] overflow-hidden">
-                            <video
-                              className=""
-                              src={product.videos[0]}
-                              autoPlay
-                              muted
-                              loop
-                            ></video>
-                          </div>
-                          <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
-                            <h6 className="mb-2 heading-h6 text-sm">
-                              <h2>{product.name}</h2>
-                            </h6>
-                            <p className="p-small font-bold text-lg">
-                              <span>Rs.</span> <span>{product.price}</span>
-                            </p>
-                          </div>
-                        </Link>
-                      </div>
+          <div className="slider-container1 grid grid-cols-12  mat-25 gap-5">
+            {/* <Slider {...setting5}> */}
+            {products.map((product) =>
+              product.videos.length > 0 ? (
+                <div
+                  key={product._id}
+                  className=" xl:col-span-2 md-lg:col-span-3 sm:col-span-6  rounded-lg overflow-hidden bg-white"
+                >
+                  <Link
+                    to={`/product/details/${product.slug}`}
+                    className="element-box rounded-lg shadow-box overflow-hidden object-cover cursor-pointer"
+                  >
+                    <div className="w-full h-[20rem] overflow-hidden">
+                      <video
+                        className="w-full h-full object-cover"
+                        src={product.videos[0]}
+                        autoPlay
+                        muted
+                        loop
+                      ></video>
                     </div>
-                  )}
-                </Fragment>
-              ))}
-            </Slider>
+                    <div className="elemt-content text-center py-5 px-3 text-md font-semibold">
+                      <h6 className="mb-2 heading-h6 text-sm">
+                        <h2>{product.name}</h2>
+                      </h6>
+                      <p className="p-small font-bold text-lg">
+                        <span>Rs.</span> <span>{product.price}</span>
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              ) : null
+            )}
+            {/* </Slider> */}
           </div>
         </div>
       </div>
